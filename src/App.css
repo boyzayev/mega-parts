@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --primary: rgb(97, 168, 163)
+  }
+  
+  .btn {
+    background-color: #eff6f6;
+    border: none;
+    padding: 7px 10px;
+    border-radius: 4px;
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 16px;
+  }
+  
+  .filter-btns {
+    margin-right: 20px;
+  }
+  
+  .close {
+    border: none;
+    cursor: pointer;
+    color: #eff6f6;
+    background-color: var(--primary);
+  }
+  
+  .close:hover {
+    background-color: #000;
+    color: white;
+  }
+  .job-tags {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .tag {
+    background-color: #eff3f4;
+    color: #5ba4a4;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    transition: background-color 0.2s;
+  }
+  
+  .tag:hover {
+    background-color: #5ba4a4;
+    color: #fff;
+  }

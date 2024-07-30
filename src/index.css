@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.i:focus {
+  border-bottom: 2px solid green;
+}
+
+.ho {
+  color: #ccc;
+  cursor: pointer;
+}
+
+.ho:hover {
+  color: blueviolet;
+}
+
+.container {
+  @apply max-w-[1250px] mx-auto px-[10px];
+}
+
+body {
+  background: #f8f9fa;
+}
+
+.swiper-slide img {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.swiper-slide img:hover {
+  transform: scale(1.1);
+
+}
+
+.vv img {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+}
+
+.vv {
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vv:hover {
+  transform: scale(1.1);
+}
