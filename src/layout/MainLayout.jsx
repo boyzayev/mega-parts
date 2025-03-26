@@ -13,25 +13,26 @@ export default function MainLayout() {
     localStorage.setItem("cartData", JSON.stringify(cartData));
   }, [cartData.length]);
 
-  const handleAddToCart = (selectedProduct) => {
-    const productExists = cartData.some(
-      (product) => product.id === selectedProduct.id
-    );
-
-    if (productExists) {
-      const updatedCartData = cartData.map((product) =>
-        product.id === selectedProduct.id
-          ? { ...product, quantity: product.quantity + 1 }
-          : product
+    const handleAddToCart = (selectedProduct) => {
+      
+      const productExists = cartData.some(
+        (product) => product.id === selectedProduct.id
       );
-      setCartData(updatedCartData);
-    } else {
-      setCartData((prevCartData) => [
-        ...prevCartData,
-        { ...selectedProduct, quantity: 1 },
-      ]);
-    }
-  };
+
+      if (productExists) {
+        const updatedCartData = cartData.map((product) =>
+          product.id === selectedProduct.id
+            ? { ...product, quantity: product.quantity + 1 }
+            : product
+        );
+        setCartData(updatedCartData);
+      } else {
+        setCartData((prevCartData) => [
+          ...prevCartData,
+          { ...selectedProduct, quantity: 1 },
+        ]);
+      }
+    };
 
   console.log(cartData)
 
@@ -42,7 +43,7 @@ export default function MainLayout() {
 
   return (
     <ShoppingCartContext.Provider value={{ cartData, setCartData, handleAddToCart, totalPrice }}>
-      <Navbar  />
+      <Navbar />
       <Outlet />
       <Footer />
     </ShoppingCartContext.Provider>

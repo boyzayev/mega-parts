@@ -8,6 +8,7 @@ import { UnderlineTabs } from '../components/UnderlineTabs';
 import ProductRecommendations from '../components/ProductRecommendations';
 import RelatedProducts from '../components/RelatedProducts';
 import { ShoppingCartContext } from '../layout/MainLayout';
+import Swal from 'sweetalert2';
 
 const products = [
     {
@@ -234,7 +235,7 @@ const VideoDetail = () => {
     const [activeItem, setActiveItem] = useState('');
     const { handleAddToCart } = useContext(ShoppingCartContext);
 
-    // Fetch product details based on URL parameter
+
     useEffect(() => {
         const foundProduct = products.find((item) => item.id === parseInt(id));
         if (foundProduct) {
@@ -243,6 +244,24 @@ const VideoDetail = () => {
             setActiveItem(foundProduct.image);
         }
     }, [id]);
+    const customAddToCart = (data) => {
+        handleAddToCart(data);
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          }
+        });
+        Toast.fire({
+          icon: "success",
+          title: "Signed in successfully"
+        });
+      };
 
     // Initialize liked products from local storage
     const [likedProducts, setLikedProducts] = useState({});
@@ -375,7 +394,7 @@ const VideoDetail = () => {
                             <button className="border-[2px] border-blue-500 w-full font-bold text-blue-500 py-2 px-4 rounded">Shop now</button>
                             <button
                                 style={{ textTransform: "uppercase" }}
-                                onClick={() => handleAddToCart(product)}
+                                onClick={() => customAddToCart(product)}
                                 className="bg-blue-500 text-[12px] gap-1 text-white py-2 w-full font-bold px-4 rounded flex justify-center items-center">
                                 Add to cart <TbBasketCheck className='text-[17px]' />
                             </button>

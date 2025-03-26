@@ -85,7 +85,7 @@ export default function Footer() {
                 </div>
             </div>
             <div className="border-t border-gray-300 flex justify-between items-center px-4 pt-1 mt-6  text-center">
-                <p className="text-sm">© IT LIVE 2024 All rights reserved.</p>
+                <p className="text-sm">© Boyzayev Aziz 2024 All rights reserved.</p>
                 <div className="mt-2">
                     <button className="border border-gray-300 px-4 py-2 text-sm rounded">Languages</button>
                 </div>
